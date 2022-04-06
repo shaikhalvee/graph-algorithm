@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class GraphProject {
 	public static void main(String[] args) {
 //		final String filePath = "D:\\UNCC\\SEM 2\\ITCS 8114 - Algorithms and Data Structures\\PROJECT 2\\graphproj\\src\\input.txt";
-		final String filePath = "../input.txt";
+		final String filePath = "src/input.txt";
 		try {
 			FileInputStream fileInputStream = new FileInputStream(filePath);
 			Scanner scanner = new Scanner(fileInputStream);
