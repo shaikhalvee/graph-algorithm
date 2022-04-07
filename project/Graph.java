@@ -18,11 +18,13 @@ public class Graph {
 			switch (direction) {
 				case 'D':
 				case 'd':
+					// for directed graph
 					adjacencyList.computeIfAbsent(edge.source, k -> new ArrayList<>());
 					adjacencyList.get(edge.source).add(edge);
 					break;
 				case 'U':
 				case 'u':
+					// for undirected graph
 					adjacencyList.computeIfAbsent(edge.source, k -> new ArrayList<>());
 					adjacencyList.get(edge.source).add(new Edge(edge.source, edge.dest, edge.weight));
 					adjacencyList.computeIfAbsent(edge.dest, k -> new ArrayList<>());
@@ -34,16 +36,21 @@ public class Graph {
 		}
 	}
 
+	public Set<Character> getVertices() {
+		return adjacencyList.keySet();
+	}
+
 	public void printGraph() {
 		for (Character sourceNode : adjacencyList.keySet()) {
-			System.out.println(sourceNode + ": " + adjacencyList.get(sourceNode));
+			System.out.print(sourceNode + ": ");
+			printEdgeSet(adjacencyList.get(sourceNode));
+			System.out.println();
 		}
 	}
 
-	private String printEdgeSet(Set<Edge> edgeSet) {
+	private void printEdgeSet(List<Edge> edgeSet) {
 		for (Edge edge : edgeSet) {
-			return "(" + edge.source + ", " + edge.dest + ")-{" + edge.weight + "}, ";
+			System.out.print("(" + edge.source + ", " + edge.dest + ")-{" + edge.weight + "} ");
 		}
-		return "";
 	}
 }
