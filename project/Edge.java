@@ -8,9 +8,9 @@ public class Edge {
 	Edge() {
 	}
 
-	Edge(Character var1, Character var2, Integer var3) {
-		this.source = var1;
-		this.dest = var2;
-		this.weight = var3;
+	Edge(Character source, Character destination, Integer weight) {
+		this.source = source;
+		this.dest = destination;
+		this.weight = weight;
 	}
 }
