@@ -26,8 +26,10 @@ public class GraphProject {
 				edge.weight = scanner.nextInt();
 				edgeList.add(edge);
 			}
+			char source = scanner.next().charAt(0);
 			Graph graph = new Graph(edgeList, direction);
 			graph.printGraph();
+			Dijkstra.doDijkstra(graph, source);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
