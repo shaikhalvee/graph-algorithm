@@ -1,33 +1,33 @@
 package project;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Graph {
-	HashMap<Character, List<Edge>> adjacencyList;
-
-	Graph() {
-		adjacencyList = null;
-	}
+	HashMap<Character, Set<Edge>> adjacencyList;
+	Set<Edge> edges;
+	Set<Character> vertices;
 
 	Graph(List<Edge> edgeList, char direction) {
 		adjacencyList = new HashMap<>();
+		edges = new HashSet<>();
+		vertices = new HashSet<>();
+		for (Edge edge : edgeList) {
+			edges.add(edge);
+			vertices.add(edge.source);
+			vertices.add(edge.dest);
+		}
+		for (Character vertex: vertices) {
+			adjacencyList.put(vertex, new HashSet<>());
+		}
 		for (Edge edge : edgeList) {
 			switch (direction) {
 				case 'D':
 				case 'd':
-					// for directed graph
-					adjacencyList.computeIfAbsent(edge.source, k -> new ArrayList<>());
 					adjacencyList.get(edge.source).add(edge);
 					break;
 				case 'U':
 				case 'u':
-					// for undirected graph
-					adjacencyList.computeIfAbsent(edge.source, k -> new ArrayList<>());
 					adjacencyList.get(edge.source).add(new Edge(edge.source, edge.dest, edge.weight));
-					adjacencyList.computeIfAbsent(edge.dest, k -> new ArrayList<>());
 					adjacencyList.get(edge.dest).add(new Edge(edge.dest, edge.source, edge.weight));
 					break;
 				default:
@@ -37,20 +37,30 @@ public class Graph {
 	}
 
 	public Set<Character> getVertices() {
-		return adjacencyList.keySet();
+		return vertices;
+	}
+
+	public Set<Edge> getEdges() {
+		return edges;
 	}
 
 	public void printGraph() {
 		for (Character sourceNode : adjacencyList.keySet()) {
 			System.out.print(sourceNode + ": ");
-			printEdgeSet(adjacencyList.get(sourceNode));
+			printEdgesForANode(adjacencyList.get(sourceNode));
 			System.out.println();
 		}
 	}
 
-	private void printEdgeSet(List<Edge> edgeSet) {
-		for (Edge edge : edgeSet) {
+	private void printEdgesForANode(Set<Edge> edgeListOfNode) {
+		for (Edge edge : edgeListOfNode) {
 			System.out.print("(" + edge.source + ", " + edge.dest + ")-{" + edge.weight + "} ");
 		}
+	}
+
+	public void clearGraph() {
+		vertices.clear();
+		edges.clear();
+		adjacencyList.clear();
 	}
 }
