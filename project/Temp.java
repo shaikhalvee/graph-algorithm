@@ -18,6 +18,13 @@ public class Temp {
 		nodePriorityQueue.add(d);
 		nodePriorityQueue.add(e);
 		System.out.println(nodePriorityQueue);
-
+		Map<Character, Boolean> hello = new HashMap<>();
+		hello.put('a',true);
+		hello.put('b',true);
+		hello.put('c',true);
+		hello.put('d',true);
+		hello.put('e',true);
+		hello.replaceAll((key, value)->false);
+		System.out.println(hello);
 	}
 }
