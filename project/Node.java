@@ -16,4 +16,12 @@ public class Node implements Comparable<Node> {
 	public int compareTo(Node o) {
 		return this.weight.compareTo(o.weight);
 	}
+
+	@Override
+	public String toString() {
+		return "Node{" +
+				"vertex=" + vertex +
+				", weight=" + weight +
+				'}';
+	}
 }
