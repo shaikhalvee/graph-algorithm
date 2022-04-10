@@ -6,8 +6,10 @@ public class Graph {
 	HashMap<Character, Set<Edge>> adjacencyList;
 	Set<Edge> edges;
 	Set<Character> vertices;
+	Character direction;
 
 	Graph(List<Edge> edgeList, char direction) {
+		this.direction = direction;
 		adjacencyList = new HashMap<>();
 		edges = new HashSet<>();
 		vertices = new HashSet<>();
@@ -46,7 +48,7 @@ public class Graph {
 
 	public void printGraph() {
 		for (Character sourceNode : adjacencyList.keySet()) {
-			System.out.print(sourceNode + ": ");
+			System.out.printf("%s: ", sourceNode);
 			printEdgesForANode(adjacencyList.get(sourceNode));
 			System.out.println();
 		}
@@ -54,7 +56,7 @@ public class Graph {
 
 	private void printEdgesForANode(Set<Edge> edgeListOfNode) {
 		for (Edge edge : edgeListOfNode) {
-			System.out.print("(" + edge.source + ", " + edge.dest + ")-{" + edge.weight + "} ");
+			System.out.printf("(%c, %c)-{%d} ", edge.source, edge.dest, edge.weight);
 		}
 	}
 
