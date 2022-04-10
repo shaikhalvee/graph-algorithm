@@ -28,8 +28,9 @@ public class GraphProject {
 			}
 			char source = scanner.next().charAt(0);
 			Graph graph = new Graph(edgeList, direction);
-			graph.printGraph();
-			Dijkstra.doDijkstra(graph, source);
+//			graph.printGraph();
+//			Dijkstra.doDijkstra(graph, source);
+			System.out.println(Kruskal.doKruskal(graph));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
