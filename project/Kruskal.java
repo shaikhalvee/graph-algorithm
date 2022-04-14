@@ -14,7 +14,7 @@ public class Kruskal {
 		List<Edge> edgeList = new ArrayList<>(graph.getEdges());
 		Collections.sort(edgeList);
 
-		for (Edge currentEdge: edgeList) {
+		for (Edge currentEdge : edgeList) {
 			Character sourceParent = disjointSet.findSet(currentEdge.source);
 			Character destParent = disjointSet.findSet(currentEdge.dest);
 			if (sourceParent != destParent) {
@@ -23,5 +23,9 @@ public class Kruskal {
 			}
 		}
 		return mstTree;
+	}
+
+	public static Integer minCost(List<Edge> edges) {
+		return edges.stream().mapToInt(edge -> edge.weight).sum();
 	}
 }
