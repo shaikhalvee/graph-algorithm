@@ -1,7 +1,6 @@
 package project;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,11 +27,11 @@ public class GraphProject {
 		char source = scanner.next().charAt(0);
 		Graph graph = new Graph(edgeList, direction);
 		graph.printGraph();
-		Dijkstra.doDijkstra(graph, source);
-		List<Edge> kruskal = Kruskal.doKruskal(graph);
-		System.out.println(kruskal);
-		System.out.printf("min value %d\n", Kruskal.minCost(kruskal));
-		System.out.println("ssc " + StronglyConnectedComponents.isStronglyConnected(graph));
-		StronglyConnectedComponents.printStronglyConnected(graph);
+//		Dijkstra.doDijkstra(graph, source);
+//		List<Edge> kruskal = Kruskal.doKruskal(graph);
+//		System.out.println(kruskal);
+//		System.out.printf("min value %d\n", Kruskal.minCost(kruskal));
+//		System.out.println("ssc " + StronglyConnectedComponents.isStronglyConnected(graph));
+		StronglyConnectedComponents.printStronglyConnectedComponents(graph);
 	}
 }

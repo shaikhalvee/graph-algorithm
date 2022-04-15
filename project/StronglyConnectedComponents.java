@@ -32,7 +32,7 @@ public class StronglyConnectedComponents {
 		return true;
 	}
 
-	public static void printStronglyConnected(Graph graph) {
+	public static void printStronglyConnectedComponents(Graph graph) {
 		Stack<Character> nodes = new Stack<>();
 		Map<Character, Boolean> visited = new HashMap<>();
 		for (Character vertex : graph.getVertices()) {
@@ -49,7 +49,7 @@ public class StronglyConnectedComponents {
 		while (!nodes.empty()) {
 			Character currentNode = nodes.pop();
 			if (!visited.get(currentNode)) {
-				DFS.dfsVisitForStrongConnection(graph, currentNode, visited, connectedNodes);
+				DFS.dfsVisitForStrongConnection(transposedGraph, currentNode, visited, connectedNodes);
 				System.out.println(connectedNodes);
 				connectedNodes.clear();
 			}
@@ -63,7 +63,7 @@ public class StronglyConnectedComponents {
 		visited.put(currentVertex, true);
 		for (Edge connectedEdge : graph.adjacencyList.get(currentVertex)) {
 			if (!visited.get(connectedEdge.dest)) {
-				fillStackOrder(graph, currentVertex, visited, stackOfNodes);
+				fillStackOrder(graph, connectedEdge.dest, visited, stackOfNodes);
 			}
 		}
 		stackOfNodes.push(currentVertex);
