@@ -1,16 +1,15 @@
 package project;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StronglyConnectedComponents {
-	public static Boolean isStronglyConnected(Graph graph, Character source) {
+	public static Boolean isStronglyConnected(Graph graph) {
 		Map<Character, Boolean> visited = new HashMap<>();
 		for (Character vertex : graph.getVertices()) {
 			visited.put(vertex, false);
 		}
+		// taking a random node
+		Character source = graph.getVertices().iterator().next();
 		DFS.dfsVisit(graph, source, visited);
 		for (Character vertex : visited.keySet()) {
 			if (!visited.get(vertex)) {
@@ -31,5 +30,42 @@ public class StronglyConnectedComponents {
 			}
 		}
 		return true;
+	}
+
+	public static void printStronglyConnected(Graph graph) {
+		Stack<Character> nodes = new Stack<>();
+		Map<Character, Boolean> visited = new HashMap<>();
+		for (Character vertex : graph.getVertices()) {
+			visited.put(vertex, false);
+		}
+		for (Character currentVertex : graph.getVertices()) {
+			if (!visited.get(currentVertex)) {
+				fillStackOrder(graph, currentVertex, visited, nodes);
+			}
+		}
+		visited.replaceAll((key, value) -> false);
+		Graph transposedGraph = graph.transpose();
+		List<Character> connectedNodes = new ArrayList<>();
+		while (!nodes.empty()) {
+			Character currentNode = nodes.pop();
+			if (!visited.get(currentNode)) {
+				DFS.dfsVisitForStrongConnection(graph, currentNode, visited, connectedNodes);
+				System.out.println(connectedNodes);
+				connectedNodes.clear();
+			}
+		}
+	}
+
+	synchronized private static void fillStackOrder(Graph graph,
+	                                                Character currentVertex,
+	                                                Map<Character, Boolean> visited,
+	                                                Stack<Character> stackOfNodes) {
+		visited.put(currentVertex, true);
+		for (Edge connectedEdge : graph.adjacencyList.get(currentVertex)) {
+			if (!visited.get(connectedEdge.dest)) {
+				fillStackOrder(graph, currentVertex, visited, stackOfNodes);
+			}
+		}
+		stackOfNodes.push(currentVertex);
 	}
 }

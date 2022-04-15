@@ -32,6 +32,7 @@ public class GraphProject {
 		List<Edge> kruskal = Kruskal.doKruskal(graph);
 		System.out.println(kruskal);
 		System.out.printf("min value %d\n", Kruskal.minCost(kruskal));
-		System.out.println("ssc " + StronglyConnectedComponents.isStronglyConnected(graph, source));
+		System.out.println("ssc " + StronglyConnectedComponents.isStronglyConnected(graph));
+		StronglyConnectedComponents.printStronglyConnected(graph);
 	}
 }
