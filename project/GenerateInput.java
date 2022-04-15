@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class GenerateInput {
 	public static void main(String[] args) throws IOException {
 		final String outputFile = "src/output.txt";
-		final String inputFile = "src/input1.txt";
+		final String inputFile = "src/easy.txt";
 		FileWriter fileWriter;
 		FileReader fileReader;
 		BufferedWriter bufferedWriter;
