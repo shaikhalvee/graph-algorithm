@@ -27,10 +27,6 @@ public class Edge implements Comparable<Edge> {
 
 	@Override
 	public String toString() {
-		return "Edge{" +
-				"source=" + source +
-				", dest=" + dest +
-				", weight=" + weight +
-				'}';
+		return String.format("(%c, %c)-{%d} ", this.source, this.dest, this.weight);
 	}
 }
