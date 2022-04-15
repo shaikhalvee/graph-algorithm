@@ -60,6 +60,15 @@ public class Graph {
 		}
 	}
 
+	public Graph transpose() {
+		List<Edge> reversedEdgeList = new ArrayList<>();
+		for (Edge edge : this.getEdges()) {
+			Edge reversedEdge = new Edge(edge.dest, edge.source, edge.weight);
+			reversedEdgeList.add(reversedEdge);
+		}
+		return new Graph(reversedEdgeList, this.direction);
+	}
+
 	public void clearGraph() {
 		vertices.clear();
 		edges.clear();
