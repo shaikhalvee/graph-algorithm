@@ -3,7 +3,7 @@ package project;
 import java.util.*;
 
 public class Dijkstra {
-	public static void doDijkstra(Graph graph, Character source) {
+	public static String doDijkstra(Graph graph, Character source) {
 		Node srcVtx = new Node(source, 0);
 
 		PriorityQueue<Node> minHeapForNodes = new PriorityQueue<>();
@@ -38,24 +38,27 @@ public class Dijkstra {
 			}
 			visited.put(currentVertex, true);
 		}
-		printShortestPath(graph, source, distance, previousVertex);
+		return printShortestPath(graph, source, distance, previousVertex);
 	}
 
-	private static void printShortestPath(Graph graph,
+	private static String printShortestPath(Graph graph,
 	                                      Character source,
 	                                      Map<Character, Integer> distance,
 	                                      Map<Character, Character> previousVertex) {
 		List<Character> shortestPath = new ArrayList<>();
+		StringBuilder fullList = new StringBuilder();
 		for (Character vertex : graph.getVertices()) {
+			String infoForCurrentVertex = "";
 			Character currentVertex = vertex;
 			while (currentVertex != '0') {
 				shortestPath.add(currentVertex);
 				currentVertex = previousVertex.get(currentVertex);
 			}
 			Collections.reverse(shortestPath);
-			System.out.printf("Node %c -> %c :: Min Cost %d :: Shortest Path %s\n",
-					source, vertex, distance.get(vertex), shortestPath);
+			fullList.append(String.format("Node %c -> %c :: Min Cost %d :: Shortest Path %s\n",
+					source, vertex, distance.get(vertex), shortestPath));
 			shortestPath.clear();
 		}
+		return fullList.toString();
 	}
 }
