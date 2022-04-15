@@ -1,5 +1,7 @@
 package project;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.util.*;
 
 public class StronglyConnectedComponents {
@@ -32,7 +34,7 @@ public class StronglyConnectedComponents {
 		return true;
 	}
 
-	public static void printStronglyConnectedComponents(Graph graph) {
+	public static void printStronglyConnectedComponents(Graph graph, Writer writer) throws IOException {
 		Stack<Character> nodes = new Stack<>();
 		Map<Character, Boolean> visited = new HashMap<>();
 		for (Character vertex : graph.getVertices()) {
@@ -50,9 +52,10 @@ public class StronglyConnectedComponents {
 			Character currentNode = nodes.pop();
 			if (!visited.get(currentNode)) {
 				DFS.dfsVisitForStrongConnection(transposedGraph, currentNode, visited, connectedNodes);
-				System.out.println(connectedNodes);
+				writer.write(String.format("%s\n", connectedNodes));
 				connectedNodes.clear();
 			}
+			writer.flush();
 		}
 	}
 
