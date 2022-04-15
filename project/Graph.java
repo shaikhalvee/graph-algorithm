@@ -1,5 +1,7 @@
 package project;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.util.*;
 
 public class Graph {
@@ -54,9 +56,23 @@ public class Graph {
 		}
 	}
 
+	public void printGraph(Writer writer) throws IOException {
+		for (Character sourceNode : adjacencyList.keySet()) {
+			writer.write(String.format("%s: ", sourceNode));
+			printEdgesForANode(adjacencyList.get(sourceNode), writer);
+			writer.write("\n");
+		}
+	}
+
 	private void printEdgesForANode(Set<Edge> edgeListOfNode) {
 		for (Edge edge : edgeListOfNode) {
 			System.out.printf("(%c, %c)-{%d} ", edge.source, edge.dest, edge.weight);
+		}
+	}
+
+	private void printEdgesForANode(Set<Edge> edgeListOfNode, Writer writer) throws IOException {
+		for (Edge edge : edgeListOfNode) {
+			writer.write(String.format("(%c, %c)-{%d} ", edge.source, edge.dest, edge.weight));
 		}
 	}
 
