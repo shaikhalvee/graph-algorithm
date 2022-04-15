@@ -25,7 +25,6 @@ C A 2
 E B 4
 D N 2
 K A 4
-A
 15 25 D
 B E 1
 E D 3
@@ -52,7 +51,6 @@ H D 1
 D A 1
 C A 3
 B L 3
-B
 12 20 U
 L J 4
 F D 2
@@ -74,7 +72,6 @@ D G 4
 H I 1
 A D 4
 H G 3
-C
 13 22 D
 G E 1
 G D 2
@@ -98,4 +95,3 @@ F A 3
 J I 3
 J L 3
 A J 3
-A
