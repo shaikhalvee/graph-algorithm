@@ -20,6 +20,9 @@ public class Dijkstra {
 		}
 		visited.put(source, true);
 		Map<Character, Character> previousVertex = new HashMap<>();
+		for (Character currentVtx : graph.getVertices()) {
+			previousVertex.put(currentVtx, '0');
+		}
 		previousVertex.put(source, '0');
 
 		while (!minHeapForNodes.isEmpty()) {
@@ -42,21 +45,24 @@ public class Dijkstra {
 	}
 
 	private static String printShortestPath(Graph graph,
-	                                      Character source,
-	                                      Map<Character, Integer> distance,
-	                                      Map<Character, Character> previousVertex) {
+	                                        Character source,
+	                                        Map<Character, Integer> distance,
+	                                        Map<Character, Character> previousVertex) {
 		List<Character> shortestPath = new ArrayList<>();
 		StringBuilder fullList = new StringBuilder();
 		for (Character vertex : graph.getVertices()) {
-			String infoForCurrentVertex = "";
 			Character currentVertex = vertex;
 			while (currentVertex != '0') {
 				shortestPath.add(currentVertex);
 				currentVertex = previousVertex.get(currentVertex);
 			}
 			Collections.reverse(shortestPath);
-			fullList.append(String.format("Node %c -> %c :: Min Cost %d :: Shortest Path %s\n",
-					source, vertex, distance.get(vertex), shortestPath));
+			if (shortestPath.size() == 1 && shortestPath.get(0) != source) {
+				fullList.append(String.format("There is no path from Node %c -> %c\n", source, vertex));
+			} else {
+				fullList.append(String.format("Node %c -> %c :: Min Cost %d :: Shortest Path %s\n",
+						source, vertex, distance.get(vertex), shortestPath));
+			}
 			shortestPath.clear();
 		}
 		return fullList.toString();
