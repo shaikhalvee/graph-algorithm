@@ -23,7 +23,6 @@ public class Dijkstra {
 		for (Character currentVtx : graph.getVertices()) {
 			previousVertex.put(currentVtx, '0');
 		}
-		previousVertex.put(source, '0');
 
 		while (!minHeapForNodes.isEmpty()) {
 			Node currentNode = minHeapForNodes.poll();
