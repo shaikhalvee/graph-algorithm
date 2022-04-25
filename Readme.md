@@ -22,8 +22,11 @@ JDK version should be greater than 1.8
 ## Input files
 
 In the `/project/src`  folder the `input1.txt` for problem 1, `input2.txt` for problem 2 and `input3.txt` for problem 3 is given.
+
 __N.B. direction of the graph must be given, otherwise it will show error__
-	For example, in `input3.txt` you have to provide D for the direction.
+
+For example, in `input3.txt` you have to provide D for the direction.
+
 **Here 4 inputs are provided. But if you want you can have as many as you want. In the first line of the file, it's specified how many graphs are provided as input. You just have to replace 4 with the number you want to test with**
 
 ## Output files
