@@ -8,7 +8,7 @@ public class DFS {
 	                                         Character currentVertex,
 	                                         Map<Character, Boolean> visited) {
 		visited.put(currentVertex, true);
-		for (Edge connectedEdge : graph.adjacencyList.get(currentVertex)) {
+		for (Edge connectedEdge : graph.getAdjacencyList().get(currentVertex)) {
 			if (connectedEdge.dest != currentVertex && !visited.get(connectedEdge.dest)) {
 				dfsVisit(graph, connectedEdge.dest, visited);
 			}
@@ -21,7 +21,7 @@ public class DFS {
 	                                                            List<Character> connectedNodes) {
 		visited.put(currentVertex, true);
 		connectedNodes.add(currentVertex);
-		for (Edge connectedEdge : graph.adjacencyList.get(currentVertex)) {
+		for (Edge connectedEdge : graph.getAdjacencyList().get(currentVertex)) {
 			if (!visited.get(connectedEdge.dest)) {
 				dfsVisitForStrongConnection(graph, connectedEdge.dest, visited, connectedNodes);
 			}

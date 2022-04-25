@@ -27,7 +27,7 @@ public class Dijkstra {
 		while (!minHeapForNodes.isEmpty()) {
 			Node currentNode = minHeapForNodes.poll();
 			Character currentVertex = currentNode.vertex;
-			for (Edge currentEdge : graph.adjacencyList.get(currentVertex)) {
+			for (Edge currentEdge : graph.getAdjacencyList().get(currentVertex)) {
 				Character destinationVertex = currentEdge.dest;
 				Integer currentEdgeWeight = currentEdge.weight;
 				if (!visited.get(destinationVertex) &&

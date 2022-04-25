@@ -28,6 +28,7 @@ public class GraphProject {
 			graph.printGraph(writer);
 			writer.write("\nShortest paths:\n");
 			writer.write(Dijkstra.doDijkstra(graph, source).toCharArray());
+//			writer.write(BellmanFord.doBellmanFord(graph, source).toCharArray());
 			writer.write("============================================\n\n");
 			writer.flush();
 		}

@@ -1,17 +1,126 @@
 Graph no: 0
-A: (A, F)-{34} (A, B)-{5} (A, D)-{13} (A, C)-{8} 
-B: (B, A)-{5} (B, C)-{2} (B, D)-{15} 
-C: (C, E)-{1} (C, A)-{8} (C, B)-{2} 
-D: (D, B)-{15} (D, F)-{25} (D, A)-{13} (D, E)-{2} 
-E: (E, C)-{1} (E, D)-{2} (E, F)-{9} 
-F: (F, D)-{25} (F, E)-{9} (F, A)-{34} 
+A: (A, E)-{3} (A, C)-{2} (A, K)-{4} (A, M)-{2} 
+B: (B, H)-{4} (B, E)-{4} (B, L)-{4} (B, M)-{3} 
+C: (C, M)-{4} (C, A)-{2} 
+D: (D, M)-{4} (D, N)-{2} (D, G)-{3} (D, I)-{4} 
+E: (E, A)-{3} (E, B)-{4} 
+F: (F, N)-{2} (F, K)-{4} (F, L)-{2} (F, N)-{1} (F, O)-{4} (F, G)-{4} 
+G: (G, O)-{2} (G, D)-{3} (G, F)-{4} 
+H: (H, N)-{4} (H, B)-{4} 
+I: (I, D)-{4} 
+J: (J, L)-{1} (J, M)-{1} 
+K: (K, A)-{4} (K, L)-{1} (K, F)-{4} 
+L: (L, K)-{1} (L, F)-{2} (L, B)-{4} (L, J)-{1} 
+M: (M, D)-{4} (M, N)-{2} (M, B)-{3} (M, C)-{4} (M, A)-{2} (M, J)-{1} 
+N: (N, F)-{1} (N, H)-{4} (N, D)-{2} (N, F)-{2} (N, M)-{2} 
+O: (O, F)-{4} (O, G)-{2} 
 
 Shortest paths:
-distance from B to A is : 2147483647
-distance from B to B is : 0
-distance from B to C is : 2
-distance from B to D is : 15
-distance from B to E is : 3
-distance from B to F is : 12
+Node A -> A :: Min Cost 0 :: Shortest Path [A]
+Node A -> B :: Min Cost 5 :: Shortest Path [A, M, B]
+Node A -> C :: Min Cost 2 :: Shortest Path [A, C]
+Node A -> D :: Min Cost 6 :: Shortest Path [A, M, D]
+Node A -> E :: Min Cost 3 :: Shortest Path [A, E]
+Node A -> F :: Min Cost 5 :: Shortest Path [A, M, N, F]
+Node A -> G :: Min Cost 9 :: Shortest Path [A, M, N, F, G]
+Node A -> H :: Min Cost 8 :: Shortest Path [A, M, N, H]
+Node A -> I :: Min Cost 10 :: Shortest Path [A, M, D, I]
+Node A -> J :: Min Cost 3 :: Shortest Path [A, M, J]
+Node A -> K :: Min Cost 4 :: Shortest Path [A, K]
+Node A -> L :: Min Cost 4 :: Shortest Path [A, M, J, L]
+Node A -> M :: Min Cost 2 :: Shortest Path [A, M]
+Node A -> N :: Min Cost 4 :: Shortest Path [A, M, N]
+Node A -> O :: Min Cost 9 :: Shortest Path [A, M, N, F, O]
+============================================
+
+Graph no: 1
+A: (A, K)-{3} (A, J)-{3} (A, B)-{3} 
+B: (B, L)-{3} (B, M)-{1} (B, E)-{1} (B, C)-{2} 
+C: (C, I)-{3} (C, A)-{3} 
+D: (D, M)-{3} (D, F)-{3} (D, A)-{1} 
+E: (E, J)-{1} (E, D)-{3} 
+F: (F, A)-{1} 
+G: (G, A)-{4} 
+H: (H, D)-{1} 
+I: (I, L)-{3} (I, H)-{1} 
+J: (J, E)-{3} (J, G)-{2} 
+K: 
+L: (L, N)-{4} 
+M: (M, I)-{4} 
+N: (N, D)-{2} (N, L)-{2} 
+
+Shortest paths:
+Node B -> A :: Min Cost 5 :: Shortest Path [B, C, A]
+Node B -> B :: Min Cost 0 :: Shortest Path [B]
+Node B -> C :: Min Cost 2 :: Shortest Path [B, C]
+Node B -> D :: Min Cost 4 :: Shortest Path [B, E, D]
+Node B -> E :: Min Cost 1 :: Shortest Path [B, E]
+Node B -> F :: Min Cost 7 :: Shortest Path [B, E, D, F]
+Node B -> G :: Min Cost 4 :: Shortest Path [B, E, J, G]
+Node B -> H :: Min Cost 6 :: Shortest Path [B, M, I, H]
+Node B -> I :: Min Cost 5 :: Shortest Path [B, M, I]
+Node B -> J :: Min Cost 2 :: Shortest Path [B, E, J]
+Node B -> K :: Min Cost 8 :: Shortest Path [B, C, A, K]
+Node B -> L :: Min Cost 3 :: Shortest Path [B, L]
+Node B -> M :: Min Cost 1 :: Shortest Path [B, M]
+Node B -> N :: Min Cost 7 :: Shortest Path [B, L, N]
+============================================
+
+Graph no: 2
+A: (A, E)-{4} (A, I)-{3} (A, D)-{4} (A, C)-{2} 
+B: (B, D)-{4} (B, K)-{1} (B, C)-{4} 
+C: (C, B)-{4} (C, A)-{2} 
+D: (D, A)-{4} (D, B)-{4} (D, G)-{4} (D, J)-{2} (D, F)-{4} (D, F)-{2} (D, E)-{1} 
+E: (E, F)-{4} (E, J)-{2} (E, A)-{4} (E, D)-{1} 
+F: (F, D)-{4} (F, D)-{2} (F, E)-{4} (F, K)-{2} 
+G: (G, H)-{1} (G, D)-{4} (G, K)-{2} (G, H)-{3} 
+H: (H, G)-{3} (H, G)-{1} (H, I)-{1} 
+I: (I, A)-{3} (I, H)-{1} 
+J: (J, E)-{2} (J, D)-{2} (J, L)-{4} 
+K: (K, G)-{2} (K, B)-{1} (K, F)-{2} 
+L: (L, J)-{4} 
+
+Shortest paths:
+Node C -> A :: Min Cost 2 :: Shortest Path [C, A]
+Node C -> B :: Min Cost 4 :: Shortest Path [C, B]
+Node C -> C :: Min Cost 0 :: Shortest Path [C]
+Node C -> D :: Min Cost 6 :: Shortest Path [C, A, D]
+Node C -> E :: Min Cost 6 :: Shortest Path [C, A, E]
+Node C -> F :: Min Cost 7 :: Shortest Path [C, B, K, F]
+Node C -> G :: Min Cost 7 :: Shortest Path [C, B, K, G]
+Node C -> H :: Min Cost 6 :: Shortest Path [C, A, I, H]
+Node C -> I :: Min Cost 5 :: Shortest Path [C, A, I]
+Node C -> J :: Min Cost 8 :: Shortest Path [C, A, E, J]
+Node C -> K :: Min Cost 5 :: Shortest Path [C, B, K]
+Node C -> L :: Min Cost 12 :: Shortest Path [C, A, E, J, L]
+============================================
+
+Graph no: 3
+A: (A, J)-{3} 
+B: (B, E)-{1} (B, K)-{4} 
+C: (C, K)-{4} 
+D: (D, L)-{3} 
+E: (E, C)-{4} 
+F: (F, E)-{4} (F, A)-{3} 
+G: (G, L)-{3} (G, D)-{2} (G, E)-{1} 
+H: (H, F)-{3} 
+I: (I, B)-{1} (I, H)-{2} (I, G)-{1} 
+J: (J, I)-{3} (J, L)-{3} (J, B)-{4} 
+K: (K, E)-{4} (K, G)-{4} 
+L: (L, G)-{1} (L, K)-{1} 
+
+Shortest paths:
+Node A -> A :: Min Cost 0 :: Shortest Path [A]
+Node A -> B :: Min Cost 7 :: Shortest Path [A, J, B]
+Node A -> C :: Min Cost 12 :: Shortest Path [A, J, I, G, E, C]
+Node A -> D :: Min Cost 9 :: Shortest Path [A, J, I, G, D]
+Node A -> E :: Min Cost 8 :: Shortest Path [A, J, I, G, E]
+Node A -> F :: Min Cost 11 :: Shortest Path [A, J, I, H, F]
+Node A -> G :: Min Cost 7 :: Shortest Path [A, J, I, G]
+Node A -> H :: Min Cost 8 :: Shortest Path [A, J, I, H]
+Node A -> I :: Min Cost 6 :: Shortest Path [A, J, I]
+Node A -> J :: Min Cost 3 :: Shortest Path [A, J]
+Node A -> K :: Min Cost 7 :: Shortest Path [A, J, L, K]
+Node A -> L :: Min Cost 6 :: Shortest Path [A, J, L]
 ============================================
 

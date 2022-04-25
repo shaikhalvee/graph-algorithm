@@ -24,7 +24,7 @@ public class StronglyConnectedComponents {
 			Edge reversedEdge = new Edge(edge.dest, edge.source, edge.weight);
 			reversedEdgeList.add(reversedEdge);
 		}
-		Graph transposeGraph = new Graph(reversedEdgeList, graph.direction);
+		Graph transposeGraph = new Graph(reversedEdgeList, graph.getDirection());
 		DFS.dfsVisit(transposeGraph, source, visited);
 		for (Character vertex : visited.keySet()) {
 			if (!visited.get(vertex)) {
@@ -64,7 +64,7 @@ public class StronglyConnectedComponents {
 	                                                Map<Character, Boolean> visited,
 	                                                Stack<Character> stackOfNodes) {
 		visited.put(currentVertex, true);
-		for (Edge connectedEdge : graph.adjacencyList.get(currentVertex)) {
+		for (Edge connectedEdge : graph.getAdjacencyList().get(currentVertex)) {
 			if (!visited.get(connectedEdge.dest)) {
 				fillStackOrder(graph, connectedEdge.dest, visited, stackOfNodes);
 			}
